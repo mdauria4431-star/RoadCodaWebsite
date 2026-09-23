@@ -92,11 +92,12 @@
   .two{display:grid;grid-template-columns:1fr 1fr;gap:44px}
   @media (max-width:820px){.two{grid-template-columns:1fr;gap:28px}}
   .day{list-style:none;margin:0;padding:0}
-  .day li{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--rule-soft)}
+  .day li{padding:16px 0;border-bottom:1px solid var(--rule-soft)}
   .day li:last-child{border-bottom:0}
   .when{font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--ink-3);padding-top:3px}
-  .day h3{margin-bottom:3px}
-  .day p{margin:0;color:var(--ink-2);font-size:15.5px}
+  .day h3{margin-bottom:5px}
+  .day p{margin:0 0 8px;color:var(--ink-2);font-size:15.5px;max-width:52ch}
+  .day p:last-child{margin-bottom:0}
 
   /* price */
   .price-lead{font-family:Archivo;font-weight:800;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;margin-bottom:6px;color:#fff}
@@ -126,6 +127,16 @@
   .lines{display:flex;gap:36px;flex-wrap:wrap;margin-top:22px;font-size:19px}
   .lines a{text-decoration:none;font-weight:600;border-bottom:2px solid var(--violet);padding-bottom:2px}
 
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
+  .shots figure{margin:0}
+  .shot{display:block;width:100%;padding:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+        background:var(--panel);cursor:zoom-in}
+  .shot:hover{border-color:var(--violet)}
+  .shot img{display:block;width:100%;height:230px;object-fit:cover;object-position:top center}
+  .shots figcaption{margin-top:9px;font-size:14.5px;color:var(--ink-2)}
+  #box{position:fixed;inset:0;background:rgba(3,6,12,.92);display:none;align-items:center;justify-content:center;padding:26px;z-index:60;cursor:zoom-out}
+  #box.on{display:flex}
+  #box img{max-width:100%;max-height:100%;border:1px solid var(--rule);border-radius:8px}
   footer{padding:30px 0 44px;font-size:14px;color:var(--ink-3)}
   footer a{color:var(--ink-3)}
   .foot{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
@@ -140,6 +151,7 @@
     <a class="brand" href="/">Road<span>Coda</span></a>
     <nav>
       <a class="hide-sm" href="#what">What it does</a>
+      <a class="hide-sm" href="#see">See it</a>
       <a class="hide-sm" href="#price">Price</a>
       <a class="hide-sm" href="#questions">Questions</a>
       <a class="signin" href="https://app.roadcoda.com/index.html">Sign in</a>
@@ -201,7 +213,7 @@
         <div class="mark open">next</div>
       </div>
 
-      <div class="sheet-foot">Invoice drafted when the last stop closes. 41 minutes of detention billed, because the times prove it.</div>
+      <div class="sheet-foot">Invoice drafted when the last stop closes. Free time is one hour a stop, thirty minutes at the DC — Store 207 ran 41 minutes over, so it's billed, and the times prove it.</div>
     </div>
   </div>
 
@@ -211,17 +223,57 @@
       <p class="lede" style="margin-bottom:26px">Nobody retypes anything. Every line below comes from something that already happened.</p>
       <div class="two">
         <ul class="day">
-          <li><div class="when">06:40</div><div><h3>The board</h3><p>Today's loads and stops, who's on them, what's running late, and why — with the reason recorded at the time instead of reconstructed on Friday.</p></div></li>
-          <li><div class="when">08:12</div><div><h3>The driver's phone</h3><p>Arrive, scan, photograph, get the signature, depart. Three taps a stop, works with no signal, sends when it comes back.</p></div></li>
-          <li><div class="when">08:13</div><div><h3>Your customer</h3><p>An email when the truck is on the way, when it's running late, when it's delivered. A tracking link that expires after the stop.</p></div></li>
-          <li><div class="when">14:20</div><div><h3>A short pallet</h3><p>Recorded at the stop, onto the to-follow list, acknowledged by the driver. Not discovered three weeks later by a store manager.</p></div></li>
+          <li><div><h3>The board</h3><p>Today's loads and stops, who's on them, what's running late and why — with the reason recorded at the time instead of reconstructed on Friday. Route planner puts the stops in the right order for the windows, the weight and the driver's hours.</p></div></li>
+          <li><div><h3>The driver's phone</h3><p>Arrive, scan, photograph, get the signature, depart. Three taps a stop, works with no signal, sends when it comes back. Barcode scanning with the phone camera or a Bluetooth scanner, returns and empties, trip sheets for paper drivers.</p></div></li>
+          <li><div><h3>What your customer sees</h3><p>Emails when the truck is on the way, running late or delivered. A tracking link that expires after the stop. A portal with their loads, documents and invoices. Delivery ratings, so you hear from an unhappy store before your competitor does.</p></div></li>
+          <li><div><h3>When something goes wrong</h3><p>A short or damaged pallet recorded at the stop, onto the to-follow list, acknowledged by the driver. OS&amp;D, refusals and closed stores with codes, not phone calls.</p></div></li>
         </ul>
         <ul class="day">
-          <li><div class="when">17:45</div><div><h3>The invoice</h3><p>Drafted the moment the load closes, priced off their contract, with tolls, detention and accessorials already on it. Weekly master invoice or per load.</p></div></li>
-          <li><div class="when">Friday</div><div><h3>Driver pay</h3><p>By mile, hour, stop, load or salary, with detention and extras. Drivers see their own week in the app. Files for ADP, Paychex, Paylocity or Gusto.</p></div></li>
-          <li><div class="when">Any day</div><div><h3>When something happens</h3><p>Accident and injury reports taken at the scene with photos and witness statements. OSHA logs, driver files, medical cards, claims — all in one place.</p></div></li>
-          <li><div class="when">Quarterly</div><div><h3>The dull necessities</h3><p>IFTA miles and fuel, tolls reconciled against what was billed, QuickBooks export, profit by customer, route, truck and driver.</p></div></li>
+          <li><div><h3>Billing</h3><p>Invoices drafted when the load closes, priced off the contract, with tolls, detention past free time, stop charges and accessorials already on. Weekly master invoices or per load, your own numbering, customer activity files, QuickBooks export, and toll statements reconciled against what you billed.</p></div></li>
+          <li><div><h3>Driver pay</h3><p>By mile, hour, stop, load or salary, with detention and extras. Drivers see their own week in the app. Files for ADP, Paychex, Paylocity or Gusto, plus office staff payroll with a time clock.</p></div></li>
+          <li><div><h3>Safety and compliance</h3><p>Accident and injury reports taken at the scene with photos and witness statements. OSHA 300, 300A and 301 logs. Incidents per million miles by driver, truck, customer and location. Driver files, CDLs, medical cards, MVRs and inspections with due dates. Claims and subrogation. Handbooks signed on the phone.</p></div></li>
+          <li><div><h3>The numbers</h3><p>Profit by customer, route, truck and driver — revenue against driver pay, fuel, tolls and costs. IFTA miles and fuel by state each quarter. Every report exports.</p></div></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="see">
+    <div class="wrap">
+      <h2>Have a look at it</h2>
+      <p class="lede" style="margin-bottom:24px">Click any of these to see it full size. This is the real software, not a mock-up.</p>
+      <div class="shots">
+        <figure><button class="shot" data-src="shots/dispatch.jpg" aria-label="Open the dispatch board full size"><img src="shots/dispatch.jpg" alt="The dispatch board: loads, trucks, drivers, stops, what is late and why" loading="lazy"></button>
+          <figcaption>The board first thing: what's late, what needs chasing, what's just paperwork.</figcaption></figure>
+        <figure><button class="shot" data-src="shots/driver.jpg" aria-label="Open the driver app full size"><img src="shots/driver.jpg" alt="The driver app on a phone, showing the day's stops" loading="lazy"></button>
+          <figcaption>The driver's day, in order. Three taps a stop.</figcaption></figure>
+        <figure><button class="shot" data-src="shots/invoice.jpg" aria-label="Open the invoice full size"><img src="shots/invoice.jpg" alt="An invoice drafted from delivered loads" loading="lazy"></button>
+          <figcaption>Invoices drafted from the loads, with the proof behind every line.</figcaption></figure>
+        <figure><button class="shot" data-src="shots/safety.jpg" aria-label="Open the safety dashboard full size"><img src="shots/safety.jpg" alt="The safety dashboard with incidents per million miles" loading="lazy"></button>
+          <figcaption>Safety, by driver, truck, customer and location — the answer when your insurer asks.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Built for the work you actually do</h2>
+      <div class="two">
+        <div>
+          <h3 style="margin-bottom:8px">Dedicated and route work</h3>
+          <p><b>Automotive parts.</b> Every box, tote, bumper cover and cage scanned onto the right truck and off at the right store. Returns and cores come back the same way.</p>
+          <p><b>Grocery and food service.</b> Multi-stop routes with tight windows, pallet counts, temperature notes, DC appointments, and detention past free time billed automatically.</p>
+          <p><b>Building supplies, industrial and plant runs.</b> Piece counts, seals, trailer swaps, plant gate times, and proof at the point of delivery.</p>
+          <p>If your trucks run the same stores every week for one customer, this was built for you rather than adapted to you.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom:8px">It looks like your company, not ours</h3>
+          <p>Everything your customer sees carries <b>your logo and your colours</b>: delivery notices, tracking pages, the customer portal, invoices, activity files and rating pages. RoadCoda's name appears once, quietly, at the bottom.</p>
+          <h3 style="margin:22px 0 8px">Already connected</h3>
+          <p><b>Samsara, Motive and Geotab</b> — connect your ELD and truck positions, odometers and hours arrive on their own. Nobody types a mileage.</p>
+          <p><b>QuickBooks</b> Online or Desktop, and payroll files for ADP, Paychex, Paylocity and Gusto.</p>
+          <p><b>EDI ready</b> — tenders in, status updates and invoices back, priced per customer connection.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -263,7 +315,8 @@
       <h2>The things people ask</h2>
 
       <div class="q"><h3>We already have a system.</h3>
-        <p>Most are built for brokerage and charge per person, so hiring a dispatcher raises your software bill. Two questions worth asking yours: what does a second user cost, and how long does it take to prove a delivery from three weeks ago?</p></div>
+        <p>Most systems dispatch loads and raise invoices, and stop there. Driver files, medical cards and MVRs are a separate subscription — usually $5 to $12 a driver a month. Injury logs and OSHA records are separate again, or paper. Delivery notices and tracking links for your customers belong to a different category of software altogether, at a few thousand a month. RoadCoda does all of it, on one bill.</p>
+        <p style="margin-top:10px">Two questions worth asking your current vendor: what does a second user cost, and how long does it take to prove a delivery from three weeks ago?</p></div>
 
       <div class="q"><h3>My drivers won't use it.</h3>
         <p>Three taps a stop, on the phone they already carry. No app store, no training day. If a driver can send a photo to his wife, he can run a route on RoadCoda.</p></div>
@@ -300,5 +353,19 @@
   </div>
 </footer>
 
+<div id="box" role="dialog" aria-modal="true" aria-label="Screenshot"><img alt=""></div>
+<script>
+  var box = document.getElementById('box'), boximg = box.querySelector('img');
+  document.querySelectorAll('.shot').forEach(function (b) {
+    b.addEventListener('click', function () {
+      boximg.src = b.dataset.src;
+      boximg.alt = b.querySelector('img').alt;
+      box.classList.add('on');
+    });
+  });
+  function shut() { box.classList.remove('on'); boximg.src = ''; }
+  box.addEventListener('click', shut);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') shut(); });
+</script>
 </body>
 </html>
