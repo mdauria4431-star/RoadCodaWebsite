@@ -58,6 +58,7 @@
   /* hero */
   .hero{padding:64px 0 52px;display:grid;grid-template-columns:.92fr 1.08fr;gap:52px;align-items:start}
   @media (max-width:900px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 40px}}
+
   .hero p{margin-top:20px}
   .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;align-items:center}
   .btn{display:inline-block;background:var(--violet-deep);color:#fff;text-decoration:none;font-weight:600;
@@ -94,9 +95,17 @@
   .mark.open{color:var(--ink-3);border-color:var(--rule)}
   .sheet-foot{padding:11px 16px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--ink-2);background:var(--panel-2)}
   /* the dispatch assistant, as it looks in the app */
-  .hero-right{display:flex;flex-direction:column;gap:14px}
-  .ask{background:var(--panel);border:1px solid var(--rule);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35);
-       width:min(100%,430px);align-self:flex-end;font-size:14px}
+  .ask-band{padding:8px 0 64px}
+  .ask-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:52px;align-items:center}
+  @media (max-width:900px){.ask-grid{grid-template-columns:1fr;gap:26px}}
+  .ask-kicker{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);font-weight:700;margin-bottom:8px}
+  .ask-band h2{margin:0 0 10px}
+  .ask-band p{color:var(--ink-2);max-width:46ch}
+  .ask-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .ask-chips span{border:1px solid var(--rule);background:var(--panel);border-radius:999px;padding:6px 12px;font-size:13.5px;color:var(--ink-2)}
+  .ask-side{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .ask{background:var(--panel);border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+       box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(139,92,246,.18);width:min(100%,440px);font-size:14px}
   .ask-head{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--rule)}
   .ask-head span{font-size:12px;color:var(--ink-3)}
   .ask-log{padding:12px 14px;display:flex;flex-direction:column;gap:9px}
@@ -108,7 +117,7 @@
   .ask-mic{width:34px;display:grid;place-items:center;border:1px solid var(--rule);border-radius:8px}
   .ask-box{flex:1;border:1px solid var(--rule);border-radius:8px;padding:7px 9px;color:var(--ink-3);font-size:13px}
   .ask-go{background:var(--violet);color:#fff;font-weight:700;border-radius:8px;padding:7px 13px;font-size:13px}
-  .ask-pill{text-decoration:none;align-self:flex-end;background:var(--violet);color:#fff;font-weight:700;border-radius:999px;padding:10px 16px;font-size:14px;
+  .ask-pill{text-decoration:none;background:var(--violet);color:#fff;font-weight:700;border-radius:999px;padding:10px 16px;font-size:14px;
             box-shadow:0 8px 24px rgba(139,92,246,.35)}
   .stamp{opacity:0;animation:stampin .5s ease-out .9s forwards}
   @keyframes stampin{from{opacity:0;transform:scale(1.14)}to{opacity:1;transform:scale(1)}}
@@ -216,7 +225,6 @@
       <p class="tour-note">No sign-up. A sample company, every screen — click anything, nothing is saved.</p>
     </div>
 
-    <div class="hero-right">
     <div class="sheet" aria-label="A route as RoadCoda records it">
       <div class="sheet-head"><b>Route 41</b> <span>Tue 23 Sep · T-114 · D. Reed</span></div>
 
@@ -262,18 +270,32 @@
 
       <div class="sheet-foot">Invoice drafted when the last stop closes. Free time is one hour a stop. Store 207 had the truck 1 hour 41 minutes — 41 over, so it's billed, and the times prove it.</div>
     </div>
-    <div class="ask" aria-label="The dispatch assistant answering a question">
-      <div class="ask-head"><b>Dispatch assistant</b><span>History · Close</span></div>
-      <div class="ask-log">
-        <div class="ask-me">If Carlos leaves Hartford at 2, when does he get to Washington?</div>
-        <div class="ask-bot">About <b>5 h 50 min</b> of driving (336 miles). Carlos's ELD shows <b>4 h 40 min</b> left today, so he hits his 11 hours at 6:40 pm and needs 10 hours off. He'd arrive about <b>5:50 am</b> tomorrow.
-          <div class="ask-disc">Estimate only. Breaks and limits worked out by the federal hours-of-service rules; the driver's ELD is the legal record.</div></div>
-      </div>
-      <div class="ask-in"><span class="ask-mic">🎤</span><span class="ask-box">Ask about drive times, hours, loads…</span><span class="ask-go">Ask</span></div>
-    </div>
-    <a class="ask-pill" href="https://app.roadcoda.com/tour.html" title="Try it on the tour">💬 Ask dispatch assistant</a>
+
     </div>
   </div>
+
+  <section class="ask-band" aria-label="The dispatch assistant">
+    <div class="wrap ask-grid">
+      <div>
+        <div class="ask-kicker">Dispatch assistant · included</div>
+        <h2>Or just ask.</h2>
+        <p>Type it or say it. Drive times come from the route engine and hours from the driver's ELD; breaks and limits are worked out by the federal rules, not guessed — and the answer shows its working.</p>
+        <div class="ask-chips"><span>How much time does Joe have left?</span><span>Who can still take a 4-hour run?</span><span>Where is load 1036?</span></div>
+      </div>
+      <div class="ask-side">
+    <div class="ask" aria-label="The dispatch assistant answering a question">
+        <div class="ask-head"><b>Dispatch assistant</b><span>History · Close</span></div>
+        <div class="ask-log">
+          <div class="ask-me">If Carlos leaves Hartford at 2, when does he get to Washington?</div>
+          <div class="ask-bot">About <b>5 h 50 min</b> of driving (336 miles). Carlos's ELD shows <b>4 h 40 min</b> left today, so he hits his 11 hours at 6:40 pm and needs 10 hours off. He'd arrive about <b>5:50 am</b> tomorrow.
+            <div class="ask-disc">Estimate only. Breaks and limits worked out by the federal hours-of-service rules; the driver's ELD is the legal record.</div></div>
+        </div>
+        <div class="ask-in"><span class="ask-mic">🎤</span><span class="ask-box">Ask about drive times, hours, loads…</span><span class="ask-go">Ask</span></div>
+      </div>
+      <a class="ask-pill" href="https://app.roadcoda.com/tour.html" title="Try it on the tour">💬 Ask dispatch assistant</a>
+      </div>
+    </div>
+  </section>
 
   <section id="what">
     <div class="wrap">
@@ -282,7 +304,7 @@
       <div class="two">
         <ul class="day">
           <li><div><h3>The board</h3><p>Today's loads and stops, who's on them, what's running late and why — with the reason recorded at the time instead of reconstructed on Friday. Route planner puts the stops in the right order for the windows, the weight and the driver's hours.</p></div></li>
-          <li><div><h3>Ask instead of digging</h3><p>A dispatch assistant you can talk to or type to: <i>&ldquo;If Carlos leaves Hartford at 2, when does he get to Washington?&rdquo;</i> &middot; <i>&ldquo;How much time does Joe have left?&rdquo;</i> &middot; <i>&ldquo;Who can still take a 4-hour run?&rdquo;</i> Drive times come from the route engine and hours from the driver's ELD; required breaks and limits are worked out by the federal rules, not guessed. Included.</p></div></li>
+          
           <li><div><h3>The driver's phone</h3><p>Arrive, scan, photograph, get the signature, depart. Three taps a stop, works with no signal, sends when it comes back. Barcode scanning with the phone camera or a Bluetooth scanner, returns and empties, trip sheets for paper drivers.</p></div></li>
           <li><div><h3>What your customer sees</h3><p>Emails when the truck is on the way, running late or delivered. A tracking link that expires after the stop. A portal with their loads, documents and invoices. Delivery ratings, so you hear from an unhappy store before your competitor does.</p></div></li>
           <li><div><h3>When something goes wrong</h3><p>A short or damaged pallet recorded at the stop, onto the to-follow list, acknowledged by the driver. OS&amp;D, refusals and closed stores with codes, not phone calls.</p></div></li>
