@@ -93,6 +93,23 @@
   .mark.late{color:var(--amber);border-color:var(--amber)}
   .mark.open{color:var(--ink-3);border-color:var(--rule)}
   .sheet-foot{padding:11px 16px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--ink-2);background:var(--panel-2)}
+  /* the dispatch assistant, as it looks in the app */
+  .hero-right{display:flex;flex-direction:column;gap:14px}
+  .ask{background:var(--panel);border:1px solid var(--rule);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35);
+       width:min(100%,430px);align-self:flex-end;font-size:14px}
+  .ask-head{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--rule)}
+  .ask-head span{font-size:12px;color:var(--ink-3)}
+  .ask-log{padding:12px 14px;display:flex;flex-direction:column;gap:9px}
+  .ask-me{align-self:flex-end;background:var(--violet-deep);color:#fff;border-radius:12px 12px 2px 12px;padding:8px 11px;max-width:88%}
+  .ask-bot{align-self:flex-start;background:var(--panel-2);border-radius:12px 12px 12px 2px;padding:9px 11px;max-width:94%;line-height:1.45}
+  .ask-bot b{color:var(--ink)}
+  .ask-disc{font-size:11px;color:var(--ink-3);margin-top:6px;line-height:1.35}
+  .ask-in{display:flex;gap:6px;padding:10px 12px;border-top:1px solid var(--rule)}
+  .ask-mic{width:34px;display:grid;place-items:center;border:1px solid var(--rule);border-radius:8px}
+  .ask-box{flex:1;border:1px solid var(--rule);border-radius:8px;padding:7px 9px;color:var(--ink-3);font-size:13px}
+  .ask-go{background:var(--violet);color:#fff;font-weight:700;border-radius:8px;padding:7px 13px;font-size:13px}
+  .ask-pill{text-decoration:none;align-self:flex-end;background:var(--violet);color:#fff;font-weight:700;border-radius:999px;padding:10px 16px;font-size:14px;
+            box-shadow:0 8px 24px rgba(139,92,246,.35)}
   .stamp{opacity:0;animation:stampin .5s ease-out .9s forwards}
   @keyframes stampin{from{opacity:0;transform:scale(1.14)}to{opacity:1;transform:scale(1)}}
   @media (prefers-reduced-motion:reduce){.stamp{opacity:1;animation:none}}
@@ -199,6 +216,7 @@
       <p class="tour-note">No sign-up. A sample company, every screen — click anything, nothing is saved.</p>
     </div>
 
+    <div class="hero-right">
     <div class="sheet" aria-label="A route as RoadCoda records it">
       <div class="sheet-head"><b>Route 41</b> <span>Tue 23 Sep · T-114 · D. Reed</span></div>
 
@@ -243,6 +261,17 @@
       </div>
 
       <div class="sheet-foot">Invoice drafted when the last stop closes. Free time is one hour a stop. Store 207 had the truck 1 hour 41 minutes — 41 over, so it's billed, and the times prove it.</div>
+    </div>
+    <div class="ask" aria-label="The dispatch assistant answering a question">
+      <div class="ask-head"><b>Dispatch assistant</b><span>History · Close</span></div>
+      <div class="ask-log">
+        <div class="ask-me">If Carlos leaves Hartford at 2, when does he get to Washington?</div>
+        <div class="ask-bot">About <b>5 h 50 min</b> of driving (336 miles). Carlos's ELD shows <b>4 h 40 min</b> left today, so he hits his 11 hours at 6:40 pm and needs 10 hours off. He'd arrive about <b>5:50 am</b> tomorrow.
+          <div class="ask-disc">Estimate only. Breaks and limits worked out by the federal hours-of-service rules; the driver's ELD is the legal record.</div></div>
+      </div>
+      <div class="ask-in"><span class="ask-mic">🎤</span><span class="ask-box">Ask about drive times, hours, loads…</span><span class="ask-go">Ask</span></div>
+    </div>
+    <a class="ask-pill" href="https://app.roadcoda.com/tour.html" title="Try it on the tour">💬 Ask dispatch assistant</a>
     </div>
   </div>
 
