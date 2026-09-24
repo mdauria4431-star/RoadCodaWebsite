@@ -153,6 +153,14 @@
   .tour-card p{margin:0;max-width:52ch;color:var(--ink-2);font-size:15.5px}
   .tour-card .btn.tour{margin-top:8px}
   .tour-small{font-size:13px;color:var(--ink-3,#8a96aa)}
+  /* owner bio: one quiet line that opens */
+  .bio{margin-top:26px;max-width:64ch;border-top:1px solid var(--rule);padding-top:16px}
+  .bio summary{cursor:pointer;list-style:none;color:var(--ink-2);font-size:15.5px}
+  .bio summary::-webkit-details-marker{display:none}
+  .bio summary b{color:var(--ink)}
+  .bio summary .more{color:var(--violet);font-weight:600;margin-left:6px;white-space:nowrap}
+  .bio[open] summary .more{display:none}
+  .bio p{margin:12px 0 0;color:var(--ink-2);font-size:15.5px;line-height:1.6}
   #box{position:fixed;inset:0;background:rgba(3,6,12,.92);display:none;align-items:center;justify-content:center;padding:26px;z-index:60;cursor:zoom-out}
   #box.on{display:flex}
   #box img{max-width:100%;max-height:100%;border:1px solid var(--rule);border-radius:8px}
@@ -371,6 +379,12 @@
         <a href="mailto:support@roadcoda.com?subject=A%20look%20at%20RoadCoda">support@roadcoda.com</a>
         <a href="tel:+18603388189">860-338-8189</a>
       </div>
+      <details class="bio">
+        <summary><b>Who built RoadCoda:</b> 40 years in transportation, from the forklift to the director's office. <span class="more">Read more &rsaquo;</span></summary>
+        <p>I've done most of the jobs RoadCoda is built for. I started on a forklift and got my Class A in 1987. I've driven flatbed, reefer, straight trucks, home delivery and vans. I've dispatched, run operations, managed safety and risk, and led sales. I've been a logistics director at a paper mill, a raw materials buyer, and a small business owner who signed the paychecks and worried about making them.</p>
+        <p>For the last several years I've designed the software carriers run on: driver apps, safety systems, customer portals and the reporting behind them.</p>
+        <p>RoadCoda is what I wished I'd had at every one of those desks. When you call, you get the person who built it.</p>
+      </details>
     </div>
   </section>
 </main>
