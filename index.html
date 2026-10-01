@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RoadCoda — software for dedicated carriers</title>
-<meta name="description" content="Dispatch, proof of delivery, invoicing, driver pay and safety records for trucking companies under 200 trucks. Priced per truck. Every user included.">
-<meta property="og:title" content="RoadCoda — software for dedicated carriers">
+<title>RoadCoda — software for dedicated and route carriers</title>
+<meta name="description" content="The system for dedicated and route carriers, and private fleets: store windows, proof of delivery, invoices that match the loads, driver pay and safety records. Under 200 trucks. Plan tomorrow free.">
+<meta property="og:title" content="RoadCoda — the system for dedicated and route carriers">
 <meta property="og:description" content="Everything between the load leaving and the invoice being paid. $17–$32 per truck per month, every user included.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#070c14">
@@ -75,6 +75,26 @@
   @keyframes tourpulse{0%{opacity:.9;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.08)}}
   @media (prefers-reduced-motion:reduce){.btn.tour::after{animation:none;opacity:0}}
   .tour-note{margin-top:12px;font-size:14px;color:var(--ink-3,#8a96aa)}
+  .kicker{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);font-weight:700;margin-bottom:12px}
+  .sub{font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:clamp(19px,2.1vw,23px);line-height:1.3;color:var(--ink);margin:18px 0 0;max-width:30ch}
+  /* free plan-your-day band */
+  .plan-band{padding:8px 0 64px}
+  .plan-card{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;border:1px solid rgba(155,107,255,.55);border-radius:14px;padding:30px 32px;
+             background:radial-gradient(120% 140% at 0% 0%,rgba(139,92,246,.28) 0%,rgba(139,92,246,.06) 45%,transparent 70%),var(--panel)}
+  @media (max-width:900px){.plan-card{grid-template-columns:1fr;gap:24px;padding:24px 22px}}
+  .plan-card p{color:var(--ink-2)}
+  .plan-steps{list-style:none;margin:0;padding:0;counter-reset:s}
+  .plan-steps li{counter-increment:s;padding:10px 0 10px 44px;position:relative;border-bottom:1px solid var(--rule-soft);font-size:15.5px;color:var(--ink-2)}
+  .plan-steps li:last-child{border-bottom:0}
+  .plan-steps li b{color:var(--ink)}
+  .plan-steps li:before{content:counter(s);position:absolute;left:0;top:9px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+                        font:600 13px 'IBM Plex Mono',monospace;color:#fff;background:var(--violet-deep)}
+  /* reviews (switched on once there are real ones) */
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:10px}
+  .review{border:1px solid var(--rule);border-radius:12px;background:var(--panel);padding:20px 22px;margin:0}
+  .review blockquote{margin:0 0 12px;font-size:16.5px;line-height:1.55}
+  .review figcaption{font-size:14px;color:var(--ink-3)}
+  .review figcaption b{color:var(--ink-2)}
   .signin.try{border-color:var(--violet);color:#fff;background:rgba(139,92,246,.18)}
 
   /* the route sheet — the one loud thing on the page */
@@ -247,7 +267,9 @@
       <a class="hide-sm" href="#see">See it</a>
       <a class="hide-sm" href="#price">Price</a>
       <a class="hide-sm" href="#questions">Questions</a>
-      <a class="signin try" href="https://app.roadcoda.com/tour.html">Try it</a>
+      <a class="hide-sm" href="#plan">Plan your day</a>
+      <a class="signin hide-sm" href="https://app.roadcoda.com/tour.html">Tour</a>
+      <a class="signin try" href="https://app.roadcoda.com/signup.html">Free trial</a>
       <a class="signin" href="https://app.roadcoda.com/index.html">Sign in</a>
     </nav>
   </div>
@@ -256,13 +278,16 @@
 <main>
   <div class="wrap hero">
     <div>
-      <h1>Your drivers already know what happened. Your office shouldn&rsquo;t have to ask.</h1>
-      <p class="lede">RoadCoda runs the day for trucking companies under 200 trucks: dispatch, proof of delivery off the driver's phone, invoices that match the loads, driver pay, and the safety records your insurer asks for.</p>
+      <div class="kicker">Built for dedicated &amp; route carriers · and private fleets</div>
+      <h1>The system for dedicated and route carriers.</h1>
+      <p class="sub">Your drivers already know what happened. Your office shouldn&rsquo;t have to ask.</p>
+      <p class="lede">Store windows, proof of delivery off the driver's phone, invoices that match the loads, driver pay, and the safety records your insurer asks for &mdash; one system, for fleets under 200 trucks.</p>
       <div class="actions">
-        <a class="btn tour" href="https://app.roadcoda.com/tour.html"><span class="play">&#9654;</span>Look around the app</a>
+        <a class="btn tour" href="https://app.roadcoda.com/signup.html">Start a free 30-day trial</a>
+        <a class="btn ghost" href="https://app.roadcoda.com/tour.html">&#9654; Look around the app</a>
         <a class="btn ghost" href="mailto:support@roadcoda.com?subject=A%2030-minute%20call%20about%20RoadCoda&amp;body=We%20run%20about%20___%20trucks%2C%20mostly%20___%20work.%20Best%20time%20to%20talk%3A">Book a 30-minute call</a>
       </div>
-      <p class="tour-note">No sign-up. A sample company, every screen — click anything, nothing is saved.</p>
+      <p class="tour-note">The trial is free for 30 days with no credit card, using your own trucks, drivers and customers. Or look around a sample company first, with no sign-up &mdash; or <a href="#plan">plan tomorrow free</a>.</p>
     </div>
 
     <div class="sheet" aria-label="A route as RoadCoda records it">
@@ -313,6 +338,25 @@
 
     </div>
   </div>
+
+  <section class="plan-band" id="plan" aria-label="Plan your day free">
+    <div class="wrap">
+      <div class="plan-card">
+        <div>
+          <div class="ask-kicker">Free &middot; no sign-up</div>
+          <h2>Plan tomorrow free.</h2>
+          <p>Upload tomorrow's store list and see how many trucks it takes, the miles, the driver hours and what the day costs &mdash; every store inside its window, every driver inside his hours. The same planner RoadCoda runs every day.</p>
+          <div class="actions" style="margin-top:18px"><a class="btn tour" href="https://app.roadcoda.com/plan.html">Plan your day free</a></div>
+          <p class="tour-note">No list handy? Try the sample day: 24 grocery stores across Connecticut.</p>
+        </div>
+        <ol class="plan-steps">
+          <li><b>Upload your list</b> &mdash; Excel, CSV, or paste it: store, address, window and pallets.</li>
+          <li><b>Tell it your day</b> &mdash; where trucks start, when they leave, what they carry.</li>
+          <li><b>Get the answer</b> &mdash; trucks, miles, hours and cost, stop by stop. Email it to yourself to keep it.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
 
   <section class="ask-band" aria-label="The dispatch assistant">
     <div class="wrap ask-grid">
@@ -390,17 +434,18 @@
       <p class="lede" style="margin-bottom:26px">Nobody retypes anything. Every line below comes from something that already happened.</p>
       <div class="two">
         <ul class="day">
-          <li><div><h3>The board</h3><p>Today's loads and stops, who's on them, what's running late and why — with the reason recorded at the time instead of reconstructed on Friday. Every driver's hours left sit next to their name, amber when they're getting close.</p></div></li>
+          <li><div><h3>The board</h3><p>Today's loads and stops, who's on them, what's running late and why — with the reason recorded at the time instead of reconstructed on Friday. Every driver's hours left sit next to their name, amber when they're getting close, and every truck shows how full it is as the day goes &mdash; so you know there's room for the returns before you ask.</p></div></li>
            <li><div><h3>Planning the day</h3><p>Hand it the customer's list of stores and windows. It decides how many trucks, which stops go on each and in what order, at the lowest cost to your customer — trucks, trailers, driver hours and miles. Every stop arrives at least 30 minutes before its window closes, and each route is built on that driver's own hours left for the day and the week. On a dedicated account it uses the account's own trucks and drivers first, keeps their days even, and names a rental only when they can't carry the day. When a stop can't be planned, your dispatcher is told why and what to do — often with a one-click fix.</p></div></li>
           
-          <li><div><h3>The driver's phone</h3><p>Arrive, scan, photograph, get the signature, depart. Three taps a stop, works with no signal, sends when it comes back. Barcode scanning with the phone camera or a Bluetooth scanner, returns and empties, trip sheets for paper drivers. A Navigate button on every stop opens the driver's own map app — Google Maps, Apple Maps, Waze, CoPilot or Sygic — and the whole app switches to Spanish with one tap.</p></div></li>
-          <li><div><h3>What your customer sees</h3><p>Emails when the truck is on the way, running late or delivered. A tracking link that expires after the stop. A portal where they look up every delivery time, every photo and every signed POD themselves, plus their loads and invoices. Delivery ratings, so you hear from an unhappy store before your competitor does. And an on-time scorecard they can pull up any time.</p></div></li>
+          <li><div><h3>The driver's phone</h3><p>Arrive, scan, photograph, get the signature, depart. Three taps a stop, works with no signal, sends when it comes back. Barcode scanning with the phone camera or a Bluetooth scanner, returns and empties, trip sheets for paper drivers. A Navigate button on every stop opens the driver's own map app — Google Maps, Apple Maps, Waze, CoPilot or Sygic — and the whole app switches to Spanish with one tap. Pre-trip and post-trip inspections are on the same phone, with a photo of any defect; a truck marked unsafe comes off the board until the repair is signed off.</p></div></li>
+          <li><div><h3>What your customer sees</h3><p>Emails when the truck is on the way, about an hour out, running late or delivered. A tracking link that expires after the stop. A portal where they look up every delivery time, every photo and every signed POD themselves, plus their loads and invoices. Delivery ratings, so you hear from an unhappy store before your competitor does. And an on-time scorecard they can pull up any time.</p></div></li>
           <li><div><h3>When something goes wrong</h3><p>A short or damaged pallet recorded at the stop, onto the to-follow list, acknowledged by the driver. OS&amp;D, refusals and closed stores with codes, not phone calls.</p></div></li>
         </ul>
         <ul class="day">
-          <li><div><h3>Billing</h3><p>Invoices drafted when the load closes, priced off the contract, with tolls, detention past free time, stop charges and accessorials already on. Weekly master invoices or per load, your own numbering, customer activity files, QuickBooks export, and toll statements reconciled against what you billed.</p></div></li>
+          <li><div><h3>Billing</h3><p>Invoices drafted when the load closes, priced off the contract, with tolls, detention past free time, stop charges and accessorials already on. Weekly master invoices or per load, your own numbering, fuel surcharges worked out the way the contract says (peg and percent included), customer activity files, QuickBooks export, and toll statements reconciled against what you billed. Before anything goes out, every BOL and POD photo is checked for a missing signature, the wrong PO, a receiver's note or a short count &mdash; a person decides. Then payments, short-pays and aging, with a statement to any customer in one click.</p></div></li>
           <li><div><h3>Driver pay</h3><p>By mile, hour, stop, load or salary, with detention and extras. Drivers see their own week in the app. Files for ADP, Paychex, Paylocity or Gusto, plus office staff payroll with a time clock.</p></div></li>
-          <li><div><h3>Safety and compliance</h3><p>Accident and injury reports taken at the scene with photos and witness statements. OSHA 300, 300A and 301 logs. Incidents per million miles by driver, truck, customer and location. Driver files, CDLs, medical cards, MVRs and inspections with due dates. Claims and subrogation. Handbooks signed on the phone.</p></div></li>
+          <li><div><h3>Safety and compliance</h3><p>Accident and injury reports taken at the scene with photos and witness statements. OSHA 300, 300A and 301 logs. Incidents per million miles by driver, truck, customer and location. Driver files, CDLs, medical cards, MVRs and inspections with due dates. Your CSA scores pulled from FMCSA every week, with a warning before a category climbs toward the threshold, plus return-to-duty tracking and a check against revoked ELDs. Claims and subrogation. Handbooks signed on the phone.</p></div></li>
+          <li><div><h3>The shop</h3><p>Work orders made from a driver's defect or a PM coming due, with parts, labor, the vendor and the odometer. Finishing one signs off the repair and puts the truck back in service, and records the PM. Maintenance cost per truck and per mile, for any dates.</p></div></li>
           <li><div><h3>The numbers</h3><p>Profit by customer, route, truck and driver — revenue against driver pay, fuel, tolls and costs. An on-time scorecard for every customer — on-time %, time on site, issues, claims and miles by week, month or quarter — ready to print for the business review. IFTA miles and fuel by state each quarter. Every report exports.</p></div></li>
         </ul>
       </div>
@@ -453,6 +498,7 @@
           <p><b>Samsara, Motive and Geotab</b> — connect your ELD and truck positions, odometers and hours arrive on their own. Nobody types a mileage.</p>
           <p><b>QuickBooks</b> Online or Desktop, and payroll files for ADP, Paychex, Paylocity and Gusto.</p>
           <p><b>EDI ready</b> — tenders in, status updates and invoices back, priced per customer connection.</p>
+          <p><b>Fleetio</b> — if your shop already runs on it, drivers' defects go to Fleetio and finished repairs come back. Set up with you as part of onboarding.</p>
         </div>
       </div>
     </div>
@@ -463,6 +509,7 @@
       <h2>Price</h2>
       <div class="price-lead">$17–$32 per truck per month</div>
       <p class="lede">The more trucks you run, the lower the rate for every truck. Every user included. $225 minimum. Cancel any time.</p>
+      <p style="font-size:15.5px;margin:4px 0 16px"><b>Try it free for 30 days first</b>, no credit card, up to 25 trucks. <a href="https://app.roadcoda.com/signup.html">Start a free trial →</a> <span style="color:var(--ink-3,#8a96aa)">(EDI and dock scanning aren't part of the trial.)</span></p>
       <p style="font-size:15.5px;color:var(--ink-2);margin:6px 0 18px;max-width:62ch"><b style="color:var(--ink)">Setup and training included.</b> Up to 8 hours of setup: fill in our templates and your data loads in minutes. Then four 2-hour online training sessions, each recorded and yours to keep; send one person to all four and they become your in-house trainer. Need more? $100 an hour, quoted first, with a log of the work. On-site visits, EDI connections and custom integrations are quoted.</p>
       <p style="font-size:14.5px;color:var(--ink-2);margin:-8px 0 18px">Setup templates (Excel, required columns marked):
         <a href="https://app.roadcoda.com/templates/RoadCoda-template-Customers.xlsx">Customers</a> ·
@@ -493,9 +540,26 @@
         <div><b>Dock scanning · $149</b><span>Every piece verified onto the right truck against the customer's manifest</span></div>
         <div><b>Text messages · $49</b><span>Delivery notices and driver messages by text</span></div>
         <div><b>EDI · from $149</b><span>Per customer connection: tenders in, status and invoices back</span></div>
+        <div><b>Fleetio sync · $49</b><span>For shops on Fleetio: drivers' defects go over, finished repairs come back</span></div>
       </div>
     </div>
   </section>
+
+  <!-- REVIEWS: switched off until there are real ones (Mike, Oct 1, 2026). Never invent a quote.
+       To turn it on: delete the line that says START-OFF and the line that says END-OFF, then put each
+       carrier's own words (with their OK in writing) in a <figure class="review">. A Capterra or G2 link
+       can go under the cards once there are reviews there.
+  START-OFF
+  <section id="reviews">
+    <div class="wrap">
+      <h2>What carriers say</h2>
+      <div class="reviews">
+        <figure class="review"><blockquote>&ldquo;THE CARRIER'S OWN WORDS&rdquo;</blockquote>
+          <figcaption><b>Name, title</b> &middot; Company, about N trucks, kind of work</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  END-OFF -->
 
   <section id="questions">
     <div class="wrap">
@@ -526,6 +590,7 @@
     <div class="wrap">
       <h2>Book a 30-minute call</h2>
       <p style="max-width:56ch">Thirty minutes, your questions, no slides. Tell me roughly how many trucks you run and what kind of work, and I'll show you the parts that matter to you.</p>
+      <p style="max-width:56ch">Rather try it yourself? <a href="https://app.roadcoda.com/signup.html">Start a free 30-day trial</a>. There's no card, and a step-by-step guide takes you through setup.</p>
       <div class="lines">
         <a href="mailto:support@roadcoda.com?subject=A%2030-minute%20call%20about%20RoadCoda">support@roadcoda.com</a>
         <a href="tel:+18603388189">860-338-8189</a>
